@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+node_modules/**
+.gitignore
+src/**
+docs/**
+web/.gitkeep
+**/*.ts
+**/*.map
+*.vsix
+scripts/**
+icon.svg
+icon48.png
+PUBLISH.md

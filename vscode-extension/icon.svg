@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0f0f23"/>
+    </linearGradient>
+  </defs>
+  <!-- 深色圆形背景 -->
+  <circle cx="128" cy="128" r="126" fill="url(#bg)"/>
+  <circle cx="128" cy="128" r="126" fill="none" stroke="#f1c40f" stroke-width="3"/>
+  <!-- ⚔️ 交叉剑 -->
+  <g transform="translate(128,118)">
+    <!-- 右剑（旋转25度） -->
+    <g transform="rotate(25)">
+      <!-- 剑身 -->
+      <polygon points="-4,-56 4,-56 3,24 -3,24" fill="#c0c8d0"/>
+      <polygon points="-1,-56 1,-56 1,24 -1,24" fill="#e0e4e8"/>
+      <!-- 剑尖 -->
+      <polygon points="-4,-56 4,-56 0,-62" fill="#d0d6dc"/>
+      <!-- 护手 -->
+      <rect x="-20" y="24" width="40" height="6" rx="2" fill="#d4a017"/>
+      <rect x="-14" y="24" width="28" height="6" rx="1" fill="#e8b828"/>
+      <!-- 剑柄 -->
+      <rect x="-5" y="30" width="10" height="24" rx="2" fill="#8a6e20"/>
+      <!-- 剑柄末端 -->
+      <circle cx="0" cy="56" r="5" fill="#d4a017"/>
+      <circle cx="0" cy="56" r="3" fill="#e8b828"/>
+    </g>
+    <!-- 左剑（旋转-25度） -->
+    <g transform="rotate(-25)">
+      <!-- 剑身 -->
+      <polygon points="-4,-56 4,-56 3,24 -3,24" fill="#b8c0c8"/>
+      <polygon points="-1,-56 1,-56 1,24 -1,24" fill="#d8dce0"/>
+      <!-- 剑尖 -->
+      <polygon points="-4,-56 4,-56 0,-62" fill="#c8ced4"/>
+      <!-- 护手 -->
+      <rect x="-20" y="24" width="40" height="6" rx="2" fill="#c89815"/>
+      <rect x="-14" y="24" width="28" height="6" rx="1" fill="#d8a820"/>
+      <!-- 剑柄 -->
+      <rect x="-5" y="30" width="10" height="24" rx="2" fill="#7a6218"/>
+      <!-- 剑柄末端 -->
+      <circle cx="0" cy="56" r="5" fill="#c89815"/>
+      <circle cx="0" cy="56" r="3" fill="#d8a820"/>
+    </g>
+    <!-- 交叉点菱形 -->
+    <polygon points="0,-14 10,-6 0,4 -10,-6" fill="#f1c40f"/>
+    <polygon points="0,-10 6,-5 0,2 -6,-5" fill="#f7dc6f"/>
+  </g>
+</svg>

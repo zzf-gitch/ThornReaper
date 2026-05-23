@@ -1,0 +1,95 @@
+{
+  "name": "thorn-reaper",
+  "displayName": "Thorn Reaper",
+  "description": "🎮 在 VS Code 中直接游玩「荆棘收割者」割草游戏！按 Ctrl+Alt+T 或点击活动栏 ⚔️ 图标启动。支持键盘/鼠标/触摸/手柄。",
+  "version": "1.0.2",
+  "publisher": "thorn-reaper-dev",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "game",
+    "thorn-reaper",
+    "vampire-survivors-like",
+    "canvas",
+    "webview",
+    "割草游戏"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "thorn-reaper.start",
+        "title": "荆棘收割者 — 启动游戏",
+        "category": "游戏"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "thorn-reaper.start",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "thorn-reaper-container",
+          "title": "荆棘收割者",
+          "icon": "$(game)"
+        }
+      ]
+    },
+    "views": {
+      "thorn-reaper-container": [
+        {
+          "type": "webview",
+          "id": "thorn-reaper-launcher",
+          "name": "荆棘收割者"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "thorn-reaper-launcher",
+        "contents": "点击下方按钮启动游戏，或使用快捷键 [Ctrl+Alt+T](command:thorn-reaper.start)\n\n---\n\n**[🎮 启动游戏](command:thorn-reaper.start)**"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/thorn-reaper"
+  },
+  "homepage": "https://github.com/your-username/thorn-reaper",
+  "bugs": {
+    "url": "https://github.com/your-username/thorn-reaper/issues"
+  },
+  "scripts": {
+    "build:web": "scripts\\build-web.bat",
+    "package": "npx vsce package",
+    "publish": "npx vsce publish",
+    "publish:patch": "npx vsce publish patch",
+    "publish:minor": "npx vsce publish minor",
+    "publish:major": "npx vsce publish major"
+  },
+  "galleryBanner": {
+    "color": "#1a1a2e",
+    "theme": "dark"
+  },
+  "markdown": "github",
+  "badges": [
+    {
+      "url": "https://img.shields.io/badge/license-MIT-blue.svg",
+      "href": "https://opensource.org/licenses/MIT",
+      "description": "MIT License"
+    }
+  ]
+}
