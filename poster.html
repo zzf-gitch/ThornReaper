@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荆棘收割者 — VS Code插件宣传海报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 30% 20%, #0f1a33 0%, #070b17 70%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Poppins', 'Microsoft YaHei', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 2rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ========== 动态星空粒子背景 ========== */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ========== 主海报卡片 ========== */
+        .poster {
+            max-width: 1000px;
+            width: 100%;
+            background: linear-gradient(160deg, #0b1222 0%, #060b14 100%);
+            border-radius: 2.5rem;
+            overflow: hidden;
+            box-shadow:
+                0 30px 60px -15px rgba(0,0,0,0.8),
+                0 0 0 1px rgba(201, 126, 90, 0.15),
+                0 0 40px rgba(201, 126, 90, 0.08);
+            transition: transform 0.2s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .poster::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 2.5rem;
+            background: linear-gradient(135deg, rgba(232,184,124,0.2), transparent 40%, transparent 60%, rgba(201,126,90,0.15));
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ========== 顶部装饰光条 ========== */
+        .thorn-bar {
+            height: 6px;
+            position: relative;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(107,46,46,0.6) 10%,
+                #c97e5a 30%,
+                #e8b87c 50%,
+                #c97e5a 70%,
+                rgba(107,46,46,0.6) 90%,
+                transparent 100%);
+            animation: thornGlow 4s ease-in-out infinite;
+        }
+        .thorn-bar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                transparent 10%,
+                rgba(232,184,124,0.6) 30%,
+                rgba(255,203,138,0.8) 50%,
+                rgba(232,184,124,0.6) 70%,
+                transparent 90%,
+                transparent 100%);
+            filter: blur(6px);
+            animation: thornGlow 4s ease-in-out infinite alternate;
+        }
+        @keyframes thornGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ========== 主要内容区 ========== */
+        .poster-content {
+            padding: 2rem 2.2rem 2rem 2.2rem;
+            position: relative;
+        }
+
+        /* ========== 标题区 ========== */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .title-section {
+            flex: 2;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(201,126,90,0.2), rgba(232,184,124,0.1));
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #f0d5a8;
+            border: 1px solid rgba(232,184,124,0.3);
+            width: fit-content;
+            box-shadow: 0 0 12px rgba(232,184,124,0.06);
+        }
+
+        .badge span {
+            font-size: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f5e7d3, #e8b87c, #ffcb8a, #f5d9a0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 30px rgba(232,184,124,0.15);
+            position: relative;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 20px rgba(232,184,124,0.1); }
+            100% { text-shadow: 0 0 40px rgba(232,184,124,0.25), 0 0 80px rgba(232,184,124,0.08); }
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #c8d6e8;
+            border-left: 3px solid #c97e5a;
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+            text-shadow: 0 0 10px rgba(201,126,90,0.15);
+        }
+
+        /* ========== VS Code 标志 ========== */
+        .vs-icon {
+            background: linear-gradient(135deg, rgba(15,26,47,0.9), rgba(20,35,60,0.7));
+            border-radius: 2rem;
+            padding: 0.6rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+            border: 1px solid rgba(126,156,212,0.2);
+        }
+
+        .vs-icon .diamond {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 6px rgba(126,156,212,0.3));
+        }
+
+        .vs-text {
+            font-weight: 600;
+            color: #8aacf0;
+        }
+
+        .vs-text small {
+            font-size: 0.7rem;
+            color: #6a86b0;
+            display: block;
+        }
+
+        /* ========== 三栏亮点卡片 ========== */
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 2rem;
+        }
+
+        .highlight-card {
+            flex: 1;
+            min-width: 160px;
+            background: linear-gradient(145deg, rgba(25,38,60,0.5), rgba(15,25,45,0.6));
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            padding: 1rem 1rem;
+            border: 1px solid rgba(201,126,90,0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: left 0.6s;
+        }
+        .highlight-card:hover::before {
+            left: 200%;
+        }
+        .highlight-card:hover {
+            border-color: rgba(201,126,90,0.5);
+            background: linear-gradient(145deg, rgba(35,50,80,0.6), rgba(20,35,60,0.7));
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 8px 25px -8px rgba(201,126,90,0.2), 0 0 20px rgba(201,126,90,0.05);
+        }
+
+        .highlight-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 6px rgba(232,184,124,0.2));
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: #f0d5a8;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-desc {
+            font-size: 0.85rem;
+            color: #b0c0d8;
+            line-height: 1.5;
+        }
+
+        /* ========== 武器网格 ========== */
+        .features-grid {
+            background: linear-gradient(135deg, rgba(0,0,0,0.35), rgba(10,18,30,0.4));
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0 1.5rem;
+            border: 1px solid rgba(255,255,255,0.04);
+            position: relative;
+        }
+        .features-grid::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(232,184,124,0.06), transparent 50%, rgba(201,126,90,0.04));
+            pointer-events: none;
+        }
+
+        .features-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f0d5a8;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.6rem;
+        }
+
+        .grid-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: #d0daf0;
+            background: rgba(255,255,255,0.03);
+            padding: 0.45rem 0.8rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: all 0.2s;
+        }
+        .grid-item:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(232,184,124,0.2);
+            transform: translateX(3px);
+        }
+
+        .grid-item strong {
+            color: #f0d5a8;
+            font-weight: 600;
+        }
+        .grid-item span {
+            filter: drop-shadow(0 0 3px rgba(255,255,255,0.1));
+        }
+
+        /* ========== 快捷键区域（游戏终端风格） ========== */
+        .shortcuts {
+            background: linear-gradient(135deg, #0a0f1a 0%, #0d1422 100%);
+            border-radius: 1.2rem;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 0 1.2rem;
+            border: 1px solid rgba(61,74,96,0.4);
+            position: relative;
+        }
+        .shortcuts::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1.2rem;
+            background: linear-gradient(135deg, rgba(232,184,124,0.03), transparent 50%);
+            pointer-events: none;
+        }
+
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            color: #d6e0f0;
+            background: rgba(255,255,255,0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: all 0.2s;
+            position: relative;
+        }
+        .shortcut-item:hover {
+            background: rgba(255,255,255,0.09);
+            border-color: rgba(232,184,124,0.15);
+        }
+
+        .shortcut-item strong {
+            color: #f5d9a0;
+        }
+
+        kbd {
+            background: linear-gradient(135deg, #1a2438, #0f1728);
+            border-radius: 8px;
+            padding: 0.25rem 0.8rem;
+            font-family: 'Consolas', 'Source Code Pro', monospace;
+            font-weight: bold;
+            color: #facc15;
+            box-shadow:
+                inset 0 -1px 0 #2a3a55,
+                inset 0 1px 0 rgba(255,255,255,0.06),
+                0 2px 4px rgba(0,0,0,0.3);
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* ========== CTA 区域 ========== */
+        .cta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.8rem;
+            gap: 1rem;
+            border-top: 1px solid rgba(232,184,124,0.15);
+            padding-top: 1.8rem;
+            position: relative;
+        }
+
+        .market-badge {
+            background: linear-gradient(135deg, #007acc, #005faa);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.7rem 1.8rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            box-shadow:
+                0 5px 18px rgba(0,122,204,0.35),
+                0 0 30px rgba(0,122,204,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .market-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .market-badge:hover {
+            background: linear-gradient(135deg, #0090e6, #0070c0);
+            transform: scale(1.03);
+            box-shadow:
+                0 6px 24px rgba(0,122,204,0.45),
+                0 0 40px rgba(0,122,204,0.12);
+        }
+        .market-badge:hover::before {
+            opacity: 1;
+        }
+
+        .qr-hint {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #dce6f0;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5;
+            text-shadow: 0 0 8px rgba(0,0,0,0.4);
+        }
+
+        .footer-meta {
+            margin-top: 1.8rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #c4d4e8;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            text-shadow: 0 0 8px rgba(0,0,0,0.4);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 1.2rem;
+        }
+
+        /* ========== 响应式 ========== */
+        @media (max-width: 700px) {
+            .poster-content {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            .shortcuts {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+            .shortcut-item {
+                justify-content: space-between;
+            }
+            .highlights {
+                gap: 0.8rem;
+            }
+            .highlight-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 动态星空背景 -->
+<div class="stars" id="stars"></div>
+
+<script>
+    // 生成星星粒子
+    (function() {
+        const container = document.getElementById('stars');
+        const count = 80;
+        for (let i = 0; i < count; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = 1 + Math.random() * 2.5;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+            star.style.animationDelay = (Math.random() * 5) + 's';
+            star.style.background = ['#fff', '#facc15', '#8ac4ff', '#e8b87c'][Math.floor(Math.random() * 4)];
+            container.appendChild(star);
+        }
+    })();
+</script>
+
+<div class="poster">
+    <div class="thorn-bar"></div>
+    <div class="poster-content">
+        <!-- 头部 -->
+        <div class="hero">
+            <div class="title-section">
+                <div class="badge">
+                    <span>⚔️</span> 直接在 VS Code 中游玩的割草游戏
+                </div>
+                <h1>荆棘收割者<br>Thorn Reaper</h1>
+                <div class="subtitle">
+                    🧟 杀敌 · 升级 · 进化技能 · 割草无双
+                </div>
+            </div>
+            <div class="vs-icon">
+                <div class="diamond">💠</div>
+                <div class="vs-text">
+                    VS Code <small>扩展市场</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心亮点卡片 -->
+        <div class="highlights">
+            <div class="highlight-card">
+                <div class="highlight-emoji">🎮</div>
+                <div class="highlight-title">即刻开玩</div>
+                <div class="highlight-desc">无需离开编辑器，一键启动，自动攻击，专注走位。</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-emoji">🔄</div>
+                <div class="highlight-title">技能进化</div>
+                <div class="highlight-desc">武器+属性协同进化系统，8种武器，5种属性强化。</div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-emoji">🎮</div>
+                <div class="highlight-title">全平台操控</div>
+                <div class="highlight-desc">键盘/鼠标/触摸屏/手柄通通支持，想怎么玩就怎么玩。</div>
+            </div>
+        </div>
+
+        <!-- 武器系统 & 特性 grid -->
+        <div class="features-grid">
+            <div class="features-title">
+                <span>⚡</span> 特色系统 <span style="flex:1"></span>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><span>🔫</span> <strong>自动手枪</strong> / 回旋镖</div>
+                <div class="grid-item"><span>⚔️</span> <strong>轨道剑</strong> / 闪电链</div>
+                <div class="grid-item"><span>💣</span> <strong>地雷系统</strong> / 范围爆炸</div>
+                <div class="grid-item"><span>🏃</span> <strong>移速 · 伤害 · 攻速</strong> 强化</div>
+                <div class="grid-item"><span>❤️</span> <strong>生命 · 拾取范围</strong> 成长</div>
+                <div class="grid-item"><span>🌀</span> <strong>技能协同进化</strong> 终极形态</div>
+            </div>
+        </div>
+
+        <!-- 快捷键与启动方式 -->
+        <div class="shortcuts">
+            <div class="shortcut-item"><span>🎯</span> 活动栏 <strong>⚔️ 图标</strong></div>
+            <div class="shortcut-item"><span>⌨️</span> 快捷键 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> / <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd></div>
+            <div class="shortcut-item"><span>📋</span> 命令面板 输入 <strong>「荆棘收割者」</strong></div>
+            <div class="shortcut-item"><span>🎮</span> 移动 <kbd>WASD</kbd> · 技能 <kbd>Space</kbd> / <kbd>J</kbd></div>
+        </div>
+
+        <!-- 安装说明 & CTA -->
+        <div class="cta">
+            <a href="https://marketplace.visualstudio.com/items?itemName=thorn-reaper-dev.thorn-reaper" class="market-badge" target="_blank">
+                💠 立即安装 · VS Code 扩展市场
+            </a>
+            <div class="qr-hint">
+                📦 搜索「荆棘收割者」或「Thorn Reaper」<br>
+                ⭐ 喜欢就留个五星吧
+            </div>
+        </div>
+        <div class="footer-meta">
+            🧩 支持自动更新 | 完全免费 | 受《吸血鬼幸存者》启发 | 存档本地安全保存
+        </div>
+    </div>
+</div>
+</body>
+</html>
