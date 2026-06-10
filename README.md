@@ -28,6 +28,9 @@
     - [核心玩法](#核心玩法)
   - [🕹️ 操作方式](#️-操作方式)
     - [📸 界面预览](#-界面预览)
+    - [🌐 Web 网页端](#-web-网页端)
+    - [🧩 VS Code 扩展端](#-vs-code-扩展端)
+    - [🖥️ Electron 桌面端](#️-electron-桌面端)
   - [🌐 一、Web 网页端](#-一web-网页端)
     - [在线游玩（GitHub Pages）](#在线游玩github-pages)
     - [本地运行开发服务器](#本地运行开发服务器)
@@ -108,32 +111,41 @@
 > 🖼️ 以下为游戏界面截图预览（点击可查看大图）
 
 <div align="center">
-<table>
-<tr>
-<th width="50%">🌐 Web 网页端</th>
-<th width="50%">🌐 Web 网页端</th>
-</tr>
-<tr>
-<td><a href="docs/screenshots/webpage_one.png" target="_blank"><img src="docs/screenshots/webpage_one.png" alt="Web 端首页" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>首页 — 主菜单与天赋商店</sub></td>
-<td><a href="docs/screenshots/webpage_two.png" target="_blank"><img src="docs/screenshots/webpage_two.png" alt="Web 端游戏" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>游戏页面 — 战斗中</sub></td>
-</tr>
-<tr>
-<th width="50%">🧩 VS Code 扩展端</th>
-<th width="50%">🧩 VS Code 扩展端</th>
-</tr>
-<tr>
-<td><a href="docs/screenshots/vscode_one.png" target="_blank"><img src="docs/screenshots/vscode_one.png" alt="VS Code 扩展" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>活动栏图标与侧边栏启动器</sub></td>
-<td><a href="docs/screenshots/vscode_two.png" target="_blank"><img src="docs/screenshots/vscode_two.png" alt="VS Code 游戏" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>扩展内全屏游戏</sub></td>
-</tr>
-<tr>
-<th width="50%">🖥️ Electron 桌面端</th>
-<th width="50%">🖥️ Electron 桌面端</th>
-</tr>
-<tr>
-<td><a href="docs/screenshots/electron_one.jpg" target="_blank"><img src="docs/screenshots/electron_one.jpg" alt="Electron 首页" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>桌面端首页 — 天赋强化</sub></td>
-<td><a href="docs/screenshots/electron_two.jpg" target="_blank"><img src="docs/screenshots/electron_two.jpg" alt="Electron 游戏" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>桌面端游戏 — 技能升级</sub></td>
-</tr>
-</table>
+
+### 🌐 Web 网页端
+
+<a href="docs/screenshots/webpage_one.png" target="_blank"><img src="docs/screenshots/webpage_one.png" alt="Web 端首页" style="max-width:800px;width:100%;border-radius:8px;border:1px solid #444;"></a>
+
+<sub>首页 — 主菜单与天赋商店</sub>
+
+<a href="docs/screenshots/webpage_two.png" target="_blank"><img src="docs/screenshots/webpage_two.png" alt="Web 端游戏" style="max-width:800px;width:100%;border-radius:8px;border:1px solid #444;"></a>
+
+<sub>游戏页面 — 战斗中</sub>
+
+---
+
+### 🧩 VS Code 扩展端
+
+<a href="docs/screenshots/vscode_one.png" target="_blank"><img src="docs/screenshots/vscode_one.png" alt="VS Code 扩展" style="max-width:800px;width:100%;border-radius:8px;border:1px solid #444;"></a>
+
+<sub>活动栏图标与侧边栏启动器</sub>
+
+<a href="docs/screenshots/vscode_two.png" target="_blank"><img src="docs/screenshots/vscode_two.png" alt="VS Code 游戏" style="max-width:800px;width:100%;border-radius:8px;border:1px solid #444;"></a>
+
+<sub>扩展内全屏游戏</sub>
+
+---
+
+### 🖥️ Electron 桌面端
+
+<a href="docs/screenshots/electron_one.jpg" target="_blank"><img src="docs/screenshots/electron_one.jpg" alt="Electron 首页" style="max-width:800px;width:100%;border-radius:8px;border:1px solid #444;"></a>
+
+<sub>桌面端首页 — 天赋强化</sub>
+
+<a href="docs/screenshots/electron_two.jpg" target="_blank"><img src="docs/screenshots/electron_two.jpg" alt="Electron 游戏" style="max-width:800px;width:100%;border-radius:8px;border:1px solid #444;"></a>
+
+<sub>桌面端游戏 — 技能升级</sub>
+
 </div>
 
 ---
