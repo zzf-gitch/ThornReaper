@@ -27,6 +27,7 @@
   - [🎮 游戏简介](#-游戏简介)
     - [核心玩法](#核心玩法)
   - [🕹️ 操作方式](#️-操作方式)
+    - [📸 界面预览](#-界面预览)
   - [🌐 一、Web 网页端](#-一web-网页端)
     - [在线游玩（GitHub Pages）](#在线游玩github-pages)
     - [本地运行开发服务器](#本地运行开发服务器)
@@ -101,6 +102,26 @@
 | **人物技能** | `空格` / `J` | 右下角技能按钮 | 右扳机 |
 | **暂停** | `ESC` | 右上角暂停按钮 | Start 键 |
 | **升级选择** | 鼠标点击 | 触摸点击 | 方向键 + A |
+
+### 📸 界面预览
+
+> 🖼️ 以下为游戏界面截图预览（点击可查看大图）
+
+<div align="center">
+
+| 网页端 |
+|:---:|:---:|
+| ![首页预览](docs/screenshots/webpage_one.png) | ![游戏预览](docs/screenshots/webpage_two.png) |
+
+| vscode插件端 |
+|:---:|:---:|
+| ![首页预览](docs/screenshots/vscode_one.png) | ![游戏预览](docs/screenshots/vscode_two.png) |
+
+| electron桌面端 |
+|:---:|:---:|
+| ![首页预览](docs/screenshots/electron_one.jpg) | ![游戏预览](docs/screenshots/electron_two.jpg) |
+
+</div>
 
 ---
 
