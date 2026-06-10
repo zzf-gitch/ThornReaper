@@ -108,19 +108,32 @@
 > 🖼️ 以下为游戏界面截图预览（点击可查看大图）
 
 <div align="center">
-
-| 网页端 |
-|:---:|:---:|
-| ![首页预览](docs/screenshots/webpage_one.png) | ![游戏预览](docs/screenshots/webpage_two.png) |
-
-| vscode插件端 |
-|:---:|:---:|
-| ![首页预览](docs/screenshots/vscode_one.png) | ![游戏预览](docs/screenshots/vscode_two.png) |
-
-| electron桌面端 |
-|:---:|:---:|
-| ![首页预览](docs/screenshots/electron_one.jpg) | ![游戏预览](docs/screenshots/electron_two.jpg) |
-
+<table>
+<tr>
+<th width="50%">🌐 Web 网页端</th>
+<th width="50%">🌐 Web 网页端</th>
+</tr>
+<tr>
+<td><a href="docs/screenshots/webpage_one.png" target="_blank"><img src="docs/screenshots/webpage_one.png" alt="Web 端首页" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>首页 — 主菜单与天赋商店</sub></td>
+<td><a href="docs/screenshots/webpage_two.png" target="_blank"><img src="docs/screenshots/webpage_two.png" alt="Web 端游戏" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>游戏页面 — 战斗中</sub></td>
+</tr>
+<tr>
+<th width="50%">🧩 VS Code 扩展端</th>
+<th width="50%">🧩 VS Code 扩展端</th>
+</tr>
+<tr>
+<td><a href="docs/screenshots/vscode_one.png" target="_blank"><img src="docs/screenshots/vscode_one.png" alt="VS Code 扩展" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>活动栏图标与侧边栏启动器</sub></td>
+<td><a href="docs/screenshots/vscode_two.png" target="_blank"><img src="docs/screenshots/vscode_two.png" alt="VS Code 游戏" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>扩展内全屏游戏</sub></td>
+</tr>
+<tr>
+<th width="50%">🖥️ Electron 桌面端</th>
+<th width="50%">🖥️ Electron 桌面端</th>
+</tr>
+<tr>
+<td><a href="docs/screenshots/electron_one.jpg" target="_blank"><img src="docs/screenshots/electron_one.jpg" alt="Electron 首页" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>桌面端首页 — 天赋强化</sub></td>
+<td><a href="docs/screenshots/electron_two.jpg" target="_blank"><img src="docs/screenshots/electron_two.jpg" alt="Electron 游戏" style="width:100%;border-radius:6px;border:1px solid #444;"></a><br><sub>桌面端游戏 — 技能升级</sub></td>
+</tr>
+</table>
 </div>
 
 ---
